@@ -1,8 +1,8 @@
 # Itamae::Plugin::Recipe::Kafka
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/itamae/plugin/recipe/kafka`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![wercker status](https://app.wercker.com/status/d16fa27024405f7773d708eda82e5f61/m/master "wercker status")](https://app.wercker.com/project/byKey/d16fa27024405f7773d708eda82e5f61)
 
-TODO: Delete this and the text above, and describe your gem
+Itamae plugin to install kafka
 
 ## Installation
 
@@ -22,7 +22,52 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Recipe
+
+```ruby
+# your recipe
+include_recipe "kafka::install"
+```
+
+### Node
+
+```yaml
+# node.yml
+scala:
+  # target scala version
+  # see: https://github.com/ohr486/itamae-plugin-recipe-scala
+  version: 2.12.3
+
+kafka:
+  # target kafka version
+  version: 0.11.0.0
+  # target scala major.minor version
+  kafka_scala_version: 2.12
+  config:
+    zookeeper:
+      host: your.zookeeper.host
+      port: 2181 # zookeeper port
+    kafka:
+      # kafka server config
+      host-name1:
+        id: 1 # host-name1's broker id
+        host: your.kafka.host1
+        port: 9091 # kafka server port for host1
+      host-name2:
+        id: 2 # host-name2's broker id
+        host: your.kafka.host2
+        port: 9092 # kafka server port for host2
+      ...
+```
+
+## Testing
+
+requirements [Vagrant](https://www.vagrantup.com/)
+
+```sh
+bundle exec rake itamae:default
+bundle exec rake spec:default
+```
 
 ## License
 
