@@ -2,7 +2,7 @@
 
 [![wercker status](https://app.wercker.com/status/d16fa27024405f7773d708eda82e5f61/m/master "wercker status")](https://app.wercker.com/project/byKey/d16fa27024405f7773d708eda82e5f61)
 
-Itamae plugin to install kafka and KSQL
+Itamae plugin to install kafka and ksql
 
 ## Installation
 
@@ -61,7 +61,7 @@ kafka:
 
 ksql:
   # target ksql version
-  version: 0.0.1
+  version: 0.1-pre10
 ```
 
 ## Testing
