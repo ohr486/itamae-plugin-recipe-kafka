@@ -6,6 +6,8 @@ end
 
 %w(
   wget
+  java-1.8.0-openjdk-devel
+  maven
 ).each do |pkg|
   package pkg do
     action :install

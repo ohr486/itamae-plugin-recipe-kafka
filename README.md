@@ -2,7 +2,7 @@
 
 [![wercker status](https://app.wercker.com/status/d16fa27024405f7773d708eda82e5f61/m/master "wercker status")](https://app.wercker.com/project/byKey/d16fa27024405f7773d708eda82e5f61)
 
-Itamae plugin to install kafka
+Itamae plugin to install kafka and KSQL
 
 ## Installation
 
@@ -58,6 +58,10 @@ kafka:
         host: your.kafka.host2
         port: 9092 # kafka server port for host2
       ...
+
+ksql:
+  # target ksql version
+  version: 0.0.1
 ```
 
 ## Testing
