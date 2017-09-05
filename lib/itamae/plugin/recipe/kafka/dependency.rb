@@ -6,6 +6,7 @@ end
 
 %w(
   wget
+  unzip
   java-1.8.0-openjdk-devel
   maven
 ).each do |pkg|
