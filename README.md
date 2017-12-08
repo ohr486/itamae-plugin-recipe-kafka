@@ -40,7 +40,7 @@ scala:
 
 kafka:
   # target kafka version
-  version: 0.11.0.0
+  version: 1.0.0
   # target scala major.minor version
   kafka_scala_version: 2.12
   config:
