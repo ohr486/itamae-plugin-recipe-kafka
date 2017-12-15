@@ -58,10 +58,6 @@ kafka:
         host: your.kafka.host2
         port: 9092 # kafka server port for host2
       ...
-
-ksql:
-  # target ksql version
-  version: 0.1-pre10
 ```
 
 ## Testing
