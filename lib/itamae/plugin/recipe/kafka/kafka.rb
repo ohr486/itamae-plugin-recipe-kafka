@@ -17,14 +17,22 @@ directory "/usr/local/kafka/config" do
 end
 
 kafka_config[:kafka].keys.each do |host|
-  template "/usr/local/kafka/config/server.properties-#{host}" do
+  template "/usr/local/kafka/config/node.properties-#{host}" do
     action :create
-    source "templates/server.properties.erb"
+    source "templates/config/node.properties.erb"
     owner "root"
     group "root"
     mode "644"
     variables(host: host, kafka_config: kafka_config)
   end
+end
+
+template "/usr/local/kafka/config/zookeeper.properties" do
+  action :create
+  source "templates/config/zookeeper.properties.erb"
+  owner "root"
+  group "root"
+  mode "644"
 end
 
 template "/etc/profile.d/kafka.sh" do
@@ -48,4 +56,15 @@ execute "# unzip tar" do
   not_if "test -e /usr/local/kafka/kafka_#{kafka_scala_version}-#{kafka_version}"
   cwd "/usr/local/kafka"
   command "tar xzvf kafka_#{kafka_scala_version}-#{kafka_version}.tgz"
+end
+
+# --- SYSTEMD ---
+
+template "/etc/systemd/system/kafka-zookeeper.service" do
+  action :create
+  source "templates/systemd/kafka-zookeeper.service.erb"
+  owner "root"
+  group "root"
+  mode "644"
+  variables(scala_version: kafka_scala_version, kafka_version: kafka_version)
 end
