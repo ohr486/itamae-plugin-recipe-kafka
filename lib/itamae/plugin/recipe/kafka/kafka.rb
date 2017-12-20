@@ -17,7 +17,7 @@ directory "/usr/local/kafka/config" do
 end
 
 kafka_config[:kafka].keys.each do |host|
-  template "/usr/local/kafka/config/node.properties-#{host}" do
+  template "/usr/local/kafka/config/node#{kafka_config[:kafka][host][:id]}.properties" do
     action :create
     source "templates/config/node.properties.erb"
     owner "root"
@@ -67,4 +67,18 @@ template "/etc/systemd/system/kafka-zookeeper.service" do
   group "root"
   mode "644"
   variables(scala_version: kafka_scala_version, kafka_version: kafka_version)
+end
+
+kafka_config[:kafka].keys.each do |host|
+  template "/etc/systemd/system/kafka-broker#{kafka_config[:kafka][host][:id]}.service" do
+    action :create
+    source "templates/systemd/kafka-broker.service.erb"
+    owner "root"
+    group "root"
+    mode "644"
+    variables(
+      host: host, kafka_config: kafka_config, id: kafka_config[:kafka][host][:id],
+      scala_version: kafka_scala_version, kafka_version: kafka_version
+    )
+  end
 end
