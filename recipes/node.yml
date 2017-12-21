@@ -3,7 +3,7 @@ scala:
 
 kafka:
   version: 1.0.0
-  kafka_scala_version: 2.12
+  scala_version: 2.12
   config:
     zookeeper:
       host: host.zookeeper
