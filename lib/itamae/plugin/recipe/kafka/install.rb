@@ -10,32 +10,6 @@ directory "/usr/local/kafka" do
   group "root"
 end
 
-directory "/usr/local/kafka/config" do
-  mode "0755"
-  owner "root"
-  group "root"
-end
-
-kafka_config[:kafka].keys.each do |host|
-  template "/usr/local/kafka/config/server.properties-#{host}" do
-    action :create
-    source "templates/server.properties.erb"
-    owner "root"
-    group "root"
-    mode "644"
-    variables(host: host, kafka_config: kafka_config)
-  end
-end
-
-template "/etc/profile.d/kafka.sh" do
-  action :create
-  source "templates/kafka.sh.erb"
-  owner "root"
-  group "root"
-  mode "644"
-  variables(kafka_path: "/usr/local/kafka/kafka_#{scala_version}-#{kafka_version}")
-end
-
 # --- INSTALL ---
 
 execute "# get kafka tar" do
