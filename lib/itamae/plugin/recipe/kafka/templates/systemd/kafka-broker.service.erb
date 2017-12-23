@@ -7,7 +7,7 @@ Type=simple
 PIDFile=/var/run/kafka-broker.pid
 User=root
 Group=root
-ExecStart=/usr/local/kafka/kafka_<%= @scala_version %>-<%= @kafka_version %>/bin/kafka-server-start.sh /usr/local/kafka/config/node<%= @id %>.properties
+ExecStart=/usr/local/kafka/kafka_<%= @scala_version %>-<%= @kafka_version %>/bin/kafka-server-start.sh /usr/local/kafka/config/broker<%= @id %>.properties
 ExecStop=/usr/local/kafka/kafka_<%= @scala_version %>-<%= @kafka_version %>/bin/kafka-server-stop.sh
 Restart=on-failure
 SyslogIdentifier=kafka

@@ -17,9 +17,9 @@ directory "/usr/local/kafka/config" do
 end
 
 kafka_config[:kafka].keys.each do |host|
-  template "/usr/local/kafka/config/node#{kafka_config[:kafka][host][:id]}.properties" do
+  template "/usr/local/kafka/config/broker#{kafka_config[:kafka][host][:id]}.properties" do
     action :create
-    source "templates/config/node.properties.erb"
+    source "templates/config/broker.properties.erb"
     owner "root"
     group "root"
     mode "644"
