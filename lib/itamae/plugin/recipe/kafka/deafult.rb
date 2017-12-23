@@ -1,0 +1,5 @@
+include_recipe "scala::install"
+include_recipe "kafka::dependency"
+include_recipe "kafka::install"
+include_recipe "kafka::config"
+include_recipe "kafka::systemd"
