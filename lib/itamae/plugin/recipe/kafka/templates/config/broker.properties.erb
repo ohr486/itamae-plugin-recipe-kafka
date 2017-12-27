@@ -4,7 +4,7 @@ broker.id=<%= @kafka_config[:kafka][@host][:id] %>
 
 ### Socket Server Settings
 listeners=PLAINTEXT://<%= @kafka_config[:kafka][@host][:host] %>:<%= @kafka_config[:kafka][@host][:port] %>
-#advertised.listeners=PLAINTEXT://your.host.name:9092
+advertised.listeners=PLAINTEXT://<%= @kafka_config[:kafka][@host][:host] %>:<%= @kafka_config[:kafka][@host][:port] %>
 #listener.security.protocol.map=PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL
 num.network.threads=3
 num.io.threads=8
