@@ -13,7 +13,7 @@ socket.receive.buffer.bytes=102400
 socket.request.max.bytes=104857600
 
 ### Log Basics
-log.dirs=/tmp/kafka-logs
+log.dirs=/kafka-logs/kafka-broker<%= @kafka_config[:kafka][@host][:id] %>-logs
 num.partitions=1
 num.recovery.threads.per.data.dir=1
 
