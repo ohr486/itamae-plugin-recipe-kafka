@@ -1,5 +1,6 @@
 # Itamae::Plugin::Recipe::Kafka
 
+[![Gem Version](https://badge.fury.io/rb/itamae-plugin-recipe-kafka.svg)](https://badge.fury.io/rb/itamae-plugin-recipe-kafka)
 [![wercker status](https://app.wercker.com/status/d16fa27024405f7773d708eda82e5f61/m/master "wercker status")](https://app.wercker.com/project/byKey/d16fa27024405f7773d708eda82e5f61)
 
 Itamae plugin to install kafka and ksql
