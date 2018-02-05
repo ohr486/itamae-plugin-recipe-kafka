@@ -21,6 +21,3 @@ kafka:
         id: 3
         host: host.broker3
         port: 9093
-
-ksql:
-  version: 0.1-pre10
