@@ -47,17 +47,21 @@ kafka:
   config:
     zookeeper:
       host: your.zookeeper.host
-      port: 2181 # zookeeper port
+      port: 2181
     kafka:
       # kafka server config
       host-name1:
-        id: 1 # host-name1's broker id
+        id: 1
         host: your.kafka.host1
-        port: 9091 # kafka server port for host1
+        port: 9091
       host-name2:
-        id: 2 # host-name2's broker id
+        id: 2
         host: your.kafka.host2
-        port: 9092 # kafka server port for host2
+        port: 9092
+      host-name3:
+        id: 3
+        host: your.kafka.host3
+        port: 9093
       ...
 ```
 
