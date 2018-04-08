@@ -9,6 +9,7 @@ end
   unzip
   java-1.8.0-openjdk-devel
   maven
+  make
 ).each do |pkg|
   package pkg do
     action :install
