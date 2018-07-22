@@ -58,6 +58,7 @@ Gemfile.lock
 # for ide
 .idea
 *.iml
+.vscode
 
 # for editor
 *.swp
